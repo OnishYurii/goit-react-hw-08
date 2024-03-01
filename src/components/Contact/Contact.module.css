@@ -1,0 +1,25 @@
+.contactForm {
+  width: 250px;
+  border: 1px solid black;
+  padding: 10px;
+  position: relative;
+  box-shadow: 1px 1px 28px 1px rgba(0, 0, 0, 0.32) inset;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  border: none;
+}
+
+.deleteBtn:hover {
+  background: linear-gradient(to top, #51170c, #f65252);
+  color: #cccccc;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}

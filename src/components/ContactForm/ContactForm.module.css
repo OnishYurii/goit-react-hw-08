@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border: 2px solid black;
+  padding: 10px;
+  box-shadow: 1px 1px 28px 1px rgba(0, 0, 0, 0.32) inset;
+}
+
+.button {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  padding: 5px;
+  border: none;
+  max-width: 169px;
+  max-height: 56px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.button:hover {
+  color: #cccccc;
+  background: linear-gradient(to top, #51170c, #f65252);
+}
+
+.error {
+  color: rgb(219, 4, 4);
+}
+
+.input {
+  margin-bottom: 8px;
+}
