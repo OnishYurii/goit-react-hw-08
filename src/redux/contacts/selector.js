@@ -8,7 +8,6 @@ export const selectError = state => state.contacts.error;
 export const selectFilteredContacts = createSelector(
   [selectFilter, selectContactsItem],
   (filter, contacts) => {
-    console.log('selectFilteredContacts');
     if (filter.trim() === '') {
       return contacts;
     } else {

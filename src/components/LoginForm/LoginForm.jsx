@@ -3,7 +3,6 @@ import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { login } from '../../redux/auth/operations';
-import { UserMenu } from '../UserMenu/UserMenu';
 
 const initialValues = {
   email: '',
@@ -46,8 +45,6 @@ export const LoginForm = () => {
           <button type="submit">Log In</button>
         </Form>
       </Formik>
-
-      <UserMenu />
     </>
   );
 };
