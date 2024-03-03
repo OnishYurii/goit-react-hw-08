@@ -11,7 +11,7 @@ export const SearchBox = () => {
 
   return (
     <div className={css.bar}>
-      <label htmlFor={filterId}>Find contacts by name</label>
+      <label htmlFor={filterId}>Find contacts by name or number</label>
       <input
         type="text"
         value={nameFilter}
