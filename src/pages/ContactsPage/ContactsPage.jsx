@@ -10,6 +10,7 @@ import { LineWave } from 'react-loader-spinner';
 import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { ContactList } from '../../components/ContactList/ContactList';
+import DocumentTitle from '../../components/DocumentTitle';
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export const ContactsPage = () => {
 
   return (
     <>
+      <DocumentTitle>Contacts</DocumentTitle>
       <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Phonebook</h1>
       {loading && !error && (
         <div className="loader-container">
