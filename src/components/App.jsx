@@ -6,11 +6,12 @@ import { refreshUser } from '../redux/auth/operations';
 import { RestrcitedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout';
+import { Toaster } from 'react-hot-toast';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
-const ContactsPage = lazy(() => import('../pages/ContactsPage'));
-const LoginPage = lazy(() => import('../pages/LoginPage'));
-const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,14 @@ export const App = () => {
           />
         </Route>
       </Routes>
+      <Toaster
+        containerStyle={{
+          top: 50,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+      />
     </div>
   );
 };

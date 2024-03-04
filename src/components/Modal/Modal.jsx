@@ -2,11 +2,38 @@ import Modal from 'react-modal';
 import css from './Modal.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
+import toast from 'react-hot-toast';
 
 Modal.setAppElement('#root');
 
 export const ModalDelete = ({ isOpen, onClose, id }) => {
   const dispatch = useDispatch();
+
+  const handleDelete = id => {
+    dispatch(deleteContact(id))
+      .unwrap()
+      .then(() => {
+        toast('Contact Deleted', {
+          icon: '👽',
+          style: {
+            backgroundColor: 'green',
+            borderRadius: '20px',
+            color: '#fff',
+          },
+        });
+      })
+      .catch(() => {
+        toast('Fail', {
+          icon: '🤪',
+          style: {
+            backgroundColor: '#e91111',
+            borderRadius: '20px',
+            color: '#fff',
+          },
+        });
+      });
+    onClose();
+  };
   return (
     <Modal
       isOpen={isOpen}
@@ -18,7 +45,7 @@ export const ModalDelete = ({ isOpen, onClose, id }) => {
         <p>Are you sure?</p>
         <ul className={css.list}>
           <li>
-            <button onClick={(() => onClose(), () => dispatch(deleteContact(id)))}>Yes</button>
+            <button onClick={() => handleDelete(id)}>Yes</button>
           </li>
           <li>
             <button onClick={() => onClose()}>No</button>

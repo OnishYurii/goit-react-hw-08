@@ -4,6 +4,7 @@ import css from './Edit.module.css';
 import { useDispatch } from 'react-redux';
 import { updateContact } from '../../redux/contacts/operations';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export const Edit = ({ name: initialName, number: initialNumber, id, state }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,28 @@ export const Edit = ({ name: initialName, number: initialNumber, id, state }) =>
       name: name,
       number: number,
     };
-    dispatch(updateContact(updatedContact));
+    dispatch(updateContact(updatedContact))
+      .unwrap()
+      .then(() => {
+        toast('Contact Updated', {
+          icon: '🙃',
+          style: {
+            backgroundColor: 'green',
+            borderRadius: '20px',
+            color: '#fff',
+          },
+        });
+      })
+      .catch(() => {
+        toast('Fail', {
+          icon: '🤪',
+          style: {
+            backgroundColor: '#e91111',
+            borderRadius: '20px',
+            color: '#fff',
+          },
+        });
+      });
     state(-1);
     console.log(updatedContact);
   };

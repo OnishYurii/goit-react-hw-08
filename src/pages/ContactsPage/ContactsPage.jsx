@@ -12,7 +12,7 @@ import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { ContactList } from '../../components/ContactList/ContactList';
 import DocumentTitle from '../../components/DocumentTitle';
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectContactsItem);
   const loading = useSelector(selectLoadingStatus);
