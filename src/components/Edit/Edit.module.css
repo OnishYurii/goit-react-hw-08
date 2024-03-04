@@ -6,6 +6,14 @@
   box-shadow: 1px 1px 28px 1px rgba(0, 0, 0, 0.32) inset;
 }
 
+.btnList {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  display: flex;
+  gap: 5px;
+}
+
 .btn {
   border: none;
 }
@@ -13,18 +21,4 @@
 .btn:hover {
   background: linear-gradient(to top, #51170c, #f65252);
   color: #cccccc;
-}
-
-.text {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.btnList {
-  position: absolute;
-  right: 10px;
-  top: 30%;
-  display: flex;
-  gap: 5px;
 }
