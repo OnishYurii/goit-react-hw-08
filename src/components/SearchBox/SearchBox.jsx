@@ -13,6 +13,7 @@ export const SearchBox = () => {
     <div className={css.bar}>
       <label htmlFor={filterId}>Find contacts by name or number</label>
       <input
+        autoComplete="off"
         type="text"
         value={nameFilter}
         onChange={evt => dispatch(filterContact(evt.target.value))}

@@ -1,16 +1,18 @@
 import css from './Contact.module.css';
 import { FaPhone } from 'react-icons/fa6';
 import { IoPerson } from 'react-icons/io5';
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Edit } from '@mui/icons-material';
 import { ModalDelete } from '../Modal/Modal';
 import { useState } from 'react';
-import { Edit } from '../Edit/Edit';
+import { Editt } from '../Edit/Edit';
+import { Button } from '@mui/material';
 
 export const Contact = ({ item: { name, number, id } }) => {
   const [modalState, setModalState] = useState(false);
   const [updateState, setUpdateState] = useState(-1);
   return updateState === id ? (
-    <Edit name={name} number={number} id={id} state={setUpdateState} />
+    <Editt name={name} number={number} id={id} state={setUpdateState} />
   ) : (
     <div className={css.contactForm}>
       <h2 className={css.text}>
@@ -23,14 +25,26 @@ export const Contact = ({ item: { name, number, id } }) => {
       </p>
       <ul className={css.btnList}>
         <li>
-          <button className={css.btn} onClick={() => setUpdateState(id)}>
+          <Button
+            onClick={() => setUpdateState(id)}
+            variant="contained"
+            size="small"
+            color="warning"
+            startIcon={<Edit />}
+          >
             Edit
-          </button>
+          </Button>
         </li>
         <li>
-          <button className={css.btn} onClick={() => setModalState(true)}>
+          <Button
+            onClick={() => setModalState(true)}
+            endIcon={<DeleteIcon />}
+            variant="contained"
+            size="small"
+            color="error"
+          >
             Delete
-          </button>
+          </Button>
         </li>
       </ul>
       <ModalDelete isOpen={modalState} id={id} onClose={() => setModalState(false)} />

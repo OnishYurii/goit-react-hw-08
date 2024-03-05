@@ -1,10 +1,19 @@
 import { NavLink } from 'react-router-dom';
+import css from './AuthNav.module.css';
+
+const buildLinkClass = ({ isActive }) => {
+  return isActive ? css.active : undefined;
+};
 
 export const AuthNav = () => {
   return (
-    <div>
-      <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Log In</NavLink>
-    </div>
+    <nav className={css.nav}>
+      <NavLink to="/register" className={buildLinkClass}>
+        Register
+      </NavLink>
+      <NavLink to="/login" className={buildLinkClass}>
+        Log In
+      </NavLink>
+    </nav>
   );
 };

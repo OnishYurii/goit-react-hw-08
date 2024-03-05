@@ -6,7 +6,7 @@ import { updateContact } from '../../redux/contacts/operations';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-export const Edit = ({ name: initialName, number: initialNumber, id, state }) => {
+export const Editt = ({ name: initialName, number: initialNumber, id, state }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState(initialName);
   const [number, setNumber] = useState(initialNumber);

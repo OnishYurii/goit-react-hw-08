@@ -33,7 +33,7 @@ export const LoginForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form autoComplete="off">
+        <Form>
           <label htmlFor={emailFieldId}>Email</label>
           <Field type="text" name="email" id={emailFieldId} />
           <ErrorMessage name="email" component="span" />

@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
+import { Button } from '@mui/material';
 
 const initialValues = {
   name: '',
@@ -12,8 +13,8 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  number: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+  name: Yup.string().min(2, 'Too Short!').max(15, 'Too Long!').required('Required'),
+  number: Yup.string().min(2, 'Too Short!').max(10, 'Too Long!').required('Required'),
 });
 
 export const ContactForm = () => {
@@ -64,9 +65,14 @@ export const ContactForm = () => {
         <Field className={css.input} type="text" name="number" id={numberFieldId} />
         <ErrorMessage className={css.error} name="number" component="span" />
 
-        <button className={css.button} type="submit">
+        <Button
+          variant="contained"
+          color="success"
+          sx={{ maxWidth: '150px', margin: '0 auto' }}
+          type="submit"
+        >
           Add contact
-        </button>
+        </Button>
       </Form>
     </Formik>
   );

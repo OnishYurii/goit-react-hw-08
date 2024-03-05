@@ -25,7 +25,7 @@ const ContactsPage = () => {
   return (
     <>
       <DocumentTitle>Contacts</DocumentTitle>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Phonebook</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Contacts List</h1>
       {loading && !error && (
         <div className="loader-container">
           <LineWave

@@ -1,0 +1,8 @@
+.active {
+  color: #ba8373;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}

@@ -1,11 +1,12 @@
 import DocumentTitle from '../../components/DocumentTitle';
+import css from './HomePage.module.css';
 
 const HomePage = () => {
   return (
-    <>
+    <div className={css.div}>
       <DocumentTitle>Home</DocumentTitle>
-      <h1>Task manager welcome page</h1>
-    </>
+      <h1>Welcome to Phonebook 🤩</h1>
+    </div>
   );
 };
 
