@@ -15,14 +15,16 @@ export const Contact = ({ item: { name, number, id } }) => {
     <Editt name={name} number={number} id={id} state={setUpdateState} />
   ) : (
     <div className={css.contactForm}>
-      <h2 className={css.text}>
-        <IoPerson />
-        {name}
-      </h2>
-      <p className={css.text}>
-        <FaPhone />
-        {number}
-      </p>
+      <div className={css.wrap}>
+        <h2 className={css.text}>
+          <IoPerson />
+          {name}
+        </h2>
+        <p className={css.text}>
+          <FaPhone />
+          {number}
+        </p>
+      </div>
       <ul className={css.btnList}>
         <li>
           <Button
@@ -42,11 +44,13 @@ export const Contact = ({ item: { name, number, id } }) => {
             variant="contained"
             size="small"
             color="error"
+            sx={{ alignItems: 'center' }}
           >
             Delete
           </Button>
         </li>
       </ul>
+
       <ModalDelete isOpen={modalState} id={id} onClose={() => setModalState(false)} />
     </div>
   );

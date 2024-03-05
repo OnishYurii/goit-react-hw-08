@@ -3,6 +3,8 @@ import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { register } from '../../redux/auth/operations';
+import css from './RegisterForm.module.css';
+import { Button } from '@mui/material';
 
 const initialValues = {
   name: '',
@@ -41,20 +43,33 @@ export const RegisterForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form autoComplete="off">
+      <Form className={css.form}>
         <label htmlFor={nameFieldId}>Name</label>
-        <Field type="text" name="name" id={nameFieldId} />
-        <ErrorMessage name="name" component="span" />
+        <Field type="text" name="name" id={nameFieldId} className={css.input} />
+        <ErrorMessage name="name" component="span" className={css.error} />
 
         <label htmlFor={emailFieldId}>Email</label>
-        <Field type="text" name="email" id={emailFieldId} />
-        <ErrorMessage name="email" component="span" />
+        <Field type="text" name="email" id={emailFieldId} className={css.input} />
+        <ErrorMessage name="email" component="span" className={css.error} />
 
         <label htmlFor={passwordFieldId}>Password</label>
-        <Field type="text" name="password" id={passwordFieldId} />
-        <ErrorMessage name="password" component="span" />
+        <Field
+          type="text"
+          name="password"
+          id={passwordFieldId}
+          autoComplete="off"
+          className={css.input}
+        />
+        <ErrorMessage name="password" component="span" className={css.error} />
 
-        <button type="submit">Register</button>
+        <Button
+          variant="contained"
+          color="success"
+          sx={{ maxWidth: '150px', margin: '0 auto' }}
+          type="submit"
+        >
+          Register
+        </Button>
       </Form>
     </Formik>
   );
