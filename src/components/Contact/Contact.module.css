@@ -9,15 +9,6 @@
   border-radius: 10px;
 }
 
-.btn {
-  border: none;
-}
-
-.btn:hover {
-  background: linear-gradient(to top, #51170c, #f65252);
-  color: #cccccc;
-}
-
 .text {
   display: flex;
   align-items: center;

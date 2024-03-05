@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { updateContact } from '../../redux/contacts/operations';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { Button } from '@mui/material';
+import { Close, Done } from '@mui/icons-material';
 
 export const Editt = ({ name: initialName, number: initialNumber, id, state }) => {
   const dispatch = useDispatch();
@@ -45,24 +47,52 @@ export const Editt = ({ name: initialName, number: initialNumber, id, state }) =
 
   return (
     <div className={css.contactForm}>
-      <h2 className={css.text}>
-        <IoPerson />
-        <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
-      </h2>
-      <p className={css.text}>
-        <FaPhone />
-        <input type="text" name="number" value={number} onChange={e => setNumber(e.target.value)} />
-      </p>
+      <div className={css.wrap}>
+        <h2 className={css.text}>
+          <IoPerson />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            className={css.input}
+          />
+        </h2>
+        <div className={css.text}>
+          <FaPhone />
+          <input
+            type="text"
+            name="number"
+            value={number}
+            onChange={e => setNumber(e.target.value)}
+            className={css.input}
+          />
+        </div>
+      </div>
       <ul className={css.btnList}>
         <li>
-          <button className={css.btn} type="submit" onClick={handleCLick}>
+          <Button
+            type="submit"
+            onClick={handleCLick}
+            variant="contained"
+            size="small"
+            color="success"
+            endIcon={<Done />}
+          >
             Save
-          </button>
+          </Button>
         </li>
         <li>
-          <button className={css.btn} onClick={() => state(-1)}>
+          <Button
+            onClick={() => state(-1)}
+            endIcon={<Close />}
+            variant="contained"
+            size="small"
+            color="error"
+            sx={{ alignItems: 'center' }}
+          >
             Cancel
-          </button>
+          </Button>
         </li>
       </ul>
     </div>
