@@ -3,6 +3,7 @@ import css from './Modal.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 import toast from 'react-hot-toast';
+import { Button } from '@mui/material';
 
 Modal.setAppElement('#root');
 
@@ -45,10 +46,19 @@ export const ModalDelete = ({ isOpen, onClose, id }) => {
         <p>Are you sure?</p>
         <ul className={css.list}>
           <li>
-            <button onClick={() => handleDelete(id)}>Yes</button>
+            <Button
+              onClick={() => handleDelete(id)}
+              variant="contained"
+              size="small"
+              color="success"
+            >
+              Yes
+            </Button>
           </li>
           <li>
-            <button onClick={() => onClose()}>No</button>
+            <Button onClick={() => onClose()} variant="contained" size="small" color="error">
+              No
+            </Button>
           </li>
         </ul>
       </div>
